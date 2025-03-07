@@ -1,7 +1,15 @@
 #include <iostream>
+using namespace std;
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    std::cout << "This is a simple C++ program." << std::endl;
+    int wage;
+
+    cin >> wage;
+
+    cout << "Salary is ";
+    cout << wage * 40 * 52;
+    cout << endl;
+
     return 0;
 }
