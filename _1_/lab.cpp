@@ -4,9 +4,9 @@
 using namespace std;
 
 int main() {
-   cout << setfill('#') << left;
-   cout << setw(7) << "Joe" << endl;
-   cout << setw(7) << "Shawn" << endl;
+    cout << setfill('#') << left;
+    cout << setw(7) << "Joe" << endl;
+    cout << setw(7) << "Shawn" << endl;
 
-   return 0;
+    return 0;
 }

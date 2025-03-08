@@ -6,12 +6,12 @@ using namespace std;
 // 103.46
 
 int main() {
-   double outsideTemperature;
+    double outsideTemperature;
 
-   cin >> outsideTemperature;
+    cin >> outsideTemperature;
 
-   /* Your solution goes here  */
+    /* Your solution goes here  */
     cout << fixed << setprecision(2) << outsideTemperature << endl;
 
-   return 0;
+    return 0;
 }
