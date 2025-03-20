@@ -13,9 +13,9 @@ int main() {
     char statement[100];
     int op1, op2;
     char operation;
-    char answer='y';
+    char answer='Y';
 
-    while (answer == 'y') {
+    while (answer == 'Y') {
         cout << "Enter expression" << endl;
         cin >> op1 >> operation >> op2;
 
@@ -26,14 +26,23 @@ int main() {
         } else if (operation == '*') {
             cout << op1 << " * " << op2 << " = " << op1 * op2 << endl;
         } else if (operation == '/') {
-            cout << op1 << " / " << op2 << " = " << op1 / op2 << endl;
+            if (op2 == 0) {
+                cout << "Division by zero is not allowed" << endl;
+            } else {
+                cout << op1 << " / " << op2 << " = " << op1 / op2 << endl;
+            }
         } else {
             cout << "Invalid operation" << endl;
         }
 
-        cout << "Do you wish to evaluate another expression? (Enter y)" << endl;
+        cout << "Do you wish to evaluate another expression? (Enter Y/N)" << endl;
         cin >> answer;
 
+        if (answer == 'N') {
+            cout << "Program Finished." << endl;
+        }
+        
+        answer = toupper(answer);
     }
 
     return 0;
