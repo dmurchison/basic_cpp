@@ -38,10 +38,10 @@ int main() {
         cout << "Do you wish to evaluate another expression? (Enter Y/N)" << endl;
         cin >> answer;
 
-        if (answer == 'N') {
+        if (answer == 'N' || answer == 'n') {
             cout << "Program Finished." << endl;
         }
-        
+
         answer = toupper(answer);
     }
 
