@@ -4,20 +4,15 @@
 using namespace std;
 
 int main() {
-    string userCode;
+    int g;
 
-    getline(cin, userCode);
+    g = 0;
 
-    for (int i = 0; i < userCode.length(); i++) {
-        if (isalpha(userCode[i])) {
-            userCode[i] = '=';
-        }
-    }
-
-    cout << userCode << endl;
-    cout << userCode.length() << endl;
-    cout << userCode.size() << endl;
-
+    while (g <= 6) {
+        cout << g << endl;
+        g = g + 4;
+     }
 
     return 0;
 }
+
