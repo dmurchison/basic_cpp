@@ -64,12 +64,27 @@ void displayMenu() {
     cout << "Enter your choice: ";
 }
 
-// Function to display the current time
+// Function to display the current time in both 12-hour and 24-hour formats
 void displayTime(int hours, int minutes, int seconds) {
-    cout << "Current time: "
-        << setw(2) << setfill('0') << hours << ":"
-        << setw(2) << setfill('0') << minutes << ":"
-        << setw(2) << setfill('0') << seconds << endl;
+    // Display 24-hour format
+    cout << "24-hour format: "
+         << setw(2) << setfill('0') << hours << ":"
+         << setw(2) << setfill('0') << minutes << ":"
+         << setw(2) << setfill('0') << seconds << endl;
+
+    // Calculate 12-hour format
+    int hours12 = hours % 12;
+    if (hours12 == 0) {
+        hours12 = 12; // 12 AM or 12 PM case
+    }
+    // This is to determine AM or PM, it says if hours is less than 12 then it is AM else PM
+    string period = (hours < 12) ? "AM" : "PM";
+
+    // Display 12-hour format
+    cout << "12-hour format: "
+         << setw(2) << setfill('0') << hours12 << ":"
+         << setw(2) << setfill('0') << minutes << ":"
+         << setw(2) << setfill('0') << seconds << " " << period << endl;
 }
 
 // Function to add an hour
