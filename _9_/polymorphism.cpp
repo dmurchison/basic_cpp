@@ -1,56 +1,76 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
-class AnimalData {
+class Employee {
 public:
-   void SetName(string givenName) {
-      fullName = givenName;
-   };
-   void SetAge(int numYears) {
-      ageYears = numYears;
-   };
-   // Other parts omitted
+   void SetName(string employeeName) {
+      name = employeeName;
+   }
 
-   void PrintAll() {
-      cout << "Name: "  << fullName;
-      cout << ", Age: " << ageYears;
-   };
+   virtual void PrintInfo() {
+      cout << name << endl;
+   }
 
-private:
-   int    ageYears;
-   string fullName;
+protected:
+   string name;
 };
 
-class PetData: public AnimalData {
+class Designer : public Employee {
 public:
-   void SetID(int petID) {
-      idNum = petID;
-   };
+   void SetObject(string setObject) {
+      object = setObject;
+   }
 
-   // FIXME: Add PrintAll() member function
-
-   /* Your solution goes here  */
+   void PrintInfo() {
+      cout << name << " designs " << object << endl;
+   }
 
 private:
-   int idNum;
+   string object;
+};
+
+class Professor : public Employee {
+public:
+   void SetSubject(string setSubject) {
+      subject = setSubject;
+   }
+
+   void PrintInfo() {
+      cout << name << " teaches " << subject << endl;
+   }
+
+private:
+   string subject;
 };
 
 int main() {
-   PetData userPet;
-   string userName;
-   int userAge;
-   int userID;
+   Employee* person1;
+   Designer* person2;
+   Professor* person3;
 
-   cin >> userName;
-   cin >> userAge;
-   cin >> userID;
+   vector<Employee*> personList;
+   unsigned int i;
 
-   userPet.SetName(userName);
-   userPet.SetAge (userAge);
-   userPet.SetID  (userID);
-   userPet.PrintAll();
-   cout << endl;
+   person1 = new Employee();
+   person1->SetName("Joe");
+
+   person2 = new Designer();
+   person2->SetName("Amy");
+   person2->SetObject("clothes");
+
+   person3 = new Professor();
+   person3->SetName("Liam");
+   person3->SetSubject("Math");
+
+   personList.push_back(person1);
+   personList.push_back(person2);
+   personList.push_back(person3);
+
+   for (i = 0; i < personList.size(); ++i) {
+      personList.at(i)->PrintInfo();
+   }
 
    return 0;
 }
