@@ -3,54 +3,56 @@
 #include <vector>
 using namespace std;
 
+
 class BaseItem {
 public:
-   void SetLastName(string providedName) {
-      lastName = providedName;
-   };
+    void SetLastName(string providedName) {
+        lastName = providedName;
+    };
 
-   // FIXME: Define PrintItem() member function
-
-   /* Your solution goes here  */
+    // Define PrintItem() as a virtual function
+    virtual void PrintItem() const {
+        cout << "Last name: " << lastName << endl;
+    };
 
 protected:
-   string lastName;
+    string lastName;
 };
 
 class DerivedItem : public BaseItem {
 public:
-   void SetFirstName(string providedName) {
-      firstName = providedName;
-   };
+    void SetFirstName(string providedName) {
+        firstName = providedName;
+    };
 
-   void PrintItem() const override {
-      cout << "First and last name: ";
-      cout << firstName << " " << lastName << endl;
-   };
+    void PrintItem() const override {
+        cout << "First and last name: ";
+        cout << firstName << " " << lastName << endl;
+    };
 
 private:
-   string firstName;
+    string firstName;
 };
 
 int main() {
-   BaseItem*    baseItemPtr    = nullptr;
-   DerivedItem* derivedItemPtr = nullptr;
-   vector<BaseItem*> itemList;
-   unsigned int i;
+    BaseItem*    baseItemPtr    = nullptr;
+    DerivedItem* derivedItemPtr = nullptr;
+    vector<BaseItem*> itemList;
+    unsigned int i;
 
-   baseItemPtr = new BaseItem();
-   baseItemPtr->SetLastName("Smith");
+    baseItemPtr = new BaseItem();
+    baseItemPtr->SetLastName("Smith");
 
-   derivedItemPtr = new DerivedItem();
-   derivedItemPtr->SetLastName("Jones");
-   derivedItemPtr->SetFirstName("Bill");
+    derivedItemPtr = new DerivedItem();
+    derivedItemPtr->SetLastName("Jones");
+    derivedItemPtr->SetFirstName("Bill");
 
-   itemList.push_back(baseItemPtr);
-   itemList.push_back(derivedItemPtr);
+    itemList.push_back(baseItemPtr);
+    itemList.push_back(derivedItemPtr);
 
-   for (i = 0; i < itemList.size(); ++i) {
-      itemList.at(i)->PrintItem();
-   }
+    for (i = 0; i < itemList.size(); ++i) {
+        itemList.at(i)->PrintItem();
+    }
 
-   return 0;
+    return 0;
 }
